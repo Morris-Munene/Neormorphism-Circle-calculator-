@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body{
+    background-color: hsl(0, 0%, 70%);;
+    position: relative;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    width: 40vw;
+    height: 40vh;
+    border-radius:20px ;
+    background-color: hsl(0, 0%, 70%);
+    box-shadow: 
+     5px 5px 15px rgba(0, 0, 0, 0.438),
+    -5px -5px 15px rgb(255, 255, 255);
+    position: relative;
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    z-index: -1;
+    border-radius: 25px;
+
+    /* Use the custom variable --angle here */
+    background: linear-gradient(var(--angle), hsl(0, 0%, 70%), rgb(0, 255, 242), hsl(0, 0%, 70%));
+    
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { --angle: 0deg; }
+    to { --angle: 360deg; }
+}
+
+
+#heading{
+    display: block;
+    color: rgb(0, 255, 242);
+    font-size: 4em;
+    text-align: center;
+    margin: 50px 0;
+    
+}
+
+.content{
+    text-align: center;
+    color: rgb(109, 109, 109);
+    transition: 0.3s ease-in-out;
+}
+.intro{
+    text-align: center;
+    margin: 30px 0;
+    font-weight: bold;
+    font-size: 1.5em;
+     color: rgb(109, 109, 109);
+
+}
+
+label{
+    font-weight: bold;
+}
+
+
+.content:hover{
+    color: rgb(0, 255, 242);
+}
+
+
+#submit{
+    margin: 30px 0;
+    width: 6vw;
+    height: 5vh;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius:15px ;
+    border: none;
+    background-color:hsl(0, 0%, 70%);
+    box-shadow: 
+     4px 4px 15px rgba(0, 0, 0, 0.438),
+    -4px -4px 15px rgb(255, 255, 255);
+
+}
+
+#submit:hover{
+    color: rgb(0, 255, 242);
+}
+
+
+
+input {
+    width: 200px; /* Increased for usability */
+    height: 50px;
+    border: none;
+    outline: none; /* Removes the default blue focus ring */
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    padding: 0 15px;
+    
+    /* Soft background color */
+    background:  hsl(0, 0%, 70%);
+
+    /* The 'Intruding' Shadow Formula */
+    box-shadow: 
+     inset 6px 6px 12px #979797,   /* Subtle dark grey, not black */
+     inset -6px -6px 12px #ffffff; /* Soft white highlight */
+}
+
+/* Add a focus state to make it feel interactive */
+input:hover{
+    width: 15vw;
+}
